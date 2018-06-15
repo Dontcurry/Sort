@@ -1,19 +1,21 @@
 #include<stdio.h>
-void Swap(int &a,int &b){
+
+void Swap(int *a,int *b){
 	int temp;
-	temp=a;
-	a=b;
-	b=temp;
+	temp=*a;
+	*a=*b;
+	*b=temp;
 }
 void Bubble2Sort(int array[],int length){
 	int left=1;
 	int right=length-1;
 	int t;
+	int i; 
 	do{
 		//正向的部分
-		for(int i=right;i>=left;i--){
+		for(i=right;i>=left;i--){
 			if(array[i]<array[i-1]){
-				Swap(array[i],array[i-1]);
+				Swap(&array[i],&array[i-1]);
 				t=i;
 			}
 		} 
@@ -21,7 +23,7 @@ void Bubble2Sort(int array[],int length){
 		//反向的部分
 		for(i=left;i<right+1;i++){
 			if(array[i]<array[i-1]){
-				Swap(array[i],array[i-1]);
+				Swap(&array[i],&array[i-1]);
 				t=i;
 			}
 		} 

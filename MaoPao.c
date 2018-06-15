@@ -1,17 +1,17 @@
 #include<stdio.h>
 
-void Swap(int &a,int &b){
+void Swap(int *a,int *b){
 	int temp;
-	temp=a;
-	a=b;
-	b=temp;
+	temp=*a;
+	*a=*b;
+	*b=temp;
 }
 void BubbleSort(int array[],int len){
 	int i,j;
 	for(i=0;i<len-1;++i){
 		for(j=len-1;j>i;--j){
 			if(array[j]<array[j-1]){
-				Swap(array[j],array[j-1]);
+				Swap(&array[j],&array[j-1]);
 			}
 		}
 	}
